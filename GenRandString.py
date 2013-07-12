@@ -11,8 +11,8 @@ def RandStringGenerator(size=6, chars=string.ascii_lowercase):
 def RandStringGeneratorWithSpace(size=6,chars=string.ascii_lowercase+ " "):
 	return ''.join(random.choice(chars) for x in range(size))
 
-def getEmail():
-	return RandStringGenerator(randint(2,9))+'@'+RandStringGenerator(randint(4,6))+".com"
+def getEmail(i):
+	return "user"+str(i)+'@'+RandStringGenerator(randint(4,6))+".com"
 
 def getTweet():
 	return RandStringGeneratorWithSpace(randint(4,140))
@@ -68,7 +68,7 @@ def makeSubscriptionsFile():
 def makeUsersFile():
 	out=csv.writer(open("Users.csv","w"),delimiter=',',quoting=csv.QUOTE_NONNUMERIC)
 	for i in range(1,1000000):
-		out.writerow([i,getName(i),getPassword(),getEmail()])
+		out.writerow([i,getName(i),getPassword(),getEmail(i)])
 
 def makeTweetsFile():
 	out=csv.writer(open("Tweets.csv","w"),delimiter=',',quoting=csv.QUOTE_NONNUMERIC)
