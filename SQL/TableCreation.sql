@@ -6,6 +6,7 @@ CREATE TABLE users(
 	
 );
 
+CREATE INDEX email_index1 ON users(email);
 
 CREATE TABLE posts(
 	tweetid bigserial Primary Key,	
@@ -15,6 +16,7 @@ CREATE TABLE posts(
 );
 
 CREATE INDEX userid_index1 ON posts(userid);
+CREATE INDEX tweetid_index1 ON posts(tweetid);
 
 CREATE TABLE following(
 	userid integer NOT NULL references users(userid),
