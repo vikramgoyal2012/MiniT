@@ -36,7 +36,7 @@ public class AppConfig{
         PGPoolingDataSource source = new PGPoolingDataSource();
 
         source.setDataSourceName("Datasource");
-        source.setServerName("localhost");
+        source.setServerName("172.16.155.82");
         source.setPortNumber(5432);
         source.setDatabaseName("vivek");
         source.setUser("vivek");
