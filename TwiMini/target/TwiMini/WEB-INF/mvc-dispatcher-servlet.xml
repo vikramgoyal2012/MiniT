@@ -16,7 +16,9 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/tweets"/>
-            <mvc:mapping path="/"/>
+            <mvc:mapping path="/{lasttweetid}"/>
+            <mvc:mapping path="/{id}/subscriptions"/>
+
             <mvc:mapping path="/users/{id}"/>
             <bean id="TweetInterceptor" class="com.springapp.mvc.Interceptors.TweetInterceptor"></bean>
         </mvc:interceptor>

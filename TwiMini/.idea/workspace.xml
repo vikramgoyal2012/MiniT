@@ -14,14 +14,14 @@
     <file path="$PROJECT_DIR$/../todo/src/main/java/to/talk/todo/web/UsersController.java" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373483119824" ignored="false" />
     <file path="$PROJECT_DIR$/../todo/src/main/java/to/talk/todo/model/User.java" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373483602425" ignored="false" />
     <file path="/User.java" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373636799297" ignored="false" />
-    <file path="/TweetRepository.java" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373721363970" ignored="false" />
+    <file path="/TweetRepository.java" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373973158994" ignored="false" />
     <file path="/host/Users/vivek.ba/IdeaProjects/todo/.idea/workspace.xml" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373543054918" ignored="false" />
     <file path="$PROJECT_DIR$/../todo_udit_/.idea/workspace.xml" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373548692751" ignored="false" />
-    <file path="/TweetController.java" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373721257065" ignored="false" />
+    <file path="/TweetController.java" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373970899033" ignored="false" />
     <file path="/Tweet.java" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373707454896" ignored="false" />
     <file path="/TweetInterceptor.java" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373710132599" ignored="false" />
     <file path="/web.xml" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373560234751" ignored="false" />
-    <file path="/mvc-dispatcher-servlet.xml" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373729685009" ignored="false" />
+    <file path="/mvc-dispatcher-servlet.xml" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373970336035" ignored="false" />
     <file path="/UserInterceptor.java" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1373719725950" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +37,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -74,6 +73,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -86,16 +86,25 @@
       <file leaf-file-name="UserController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="58" selection-start="1824" selection-end="1824" vertical-scroll-proportion="0.0">
+            <state line="72" column="29" selection-start="2728" selection-end="2728" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TweetRepository.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TweetRepository.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/data/TweetRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="5" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.0">
+            <state line="34" column="145" selection-start="1370" selection-end="1370" vertical-scroll-proportion="0.8340249">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tweet.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/model/Tweet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -104,7 +113,7 @@
       <file leaf-file-name="TweetController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/TweetController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="33" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0">
+            <state line="25" column="39" selection-start="864" selection-end="864" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -113,16 +122,16 @@
       <file leaf-file-name="TweetInterceptor.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/Interceptors/TweetInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="38" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0">
+            <state line="22" column="0" selection-start="936" selection-end="1020" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserRepository.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UserRepository.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/data/UserRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="27" selection-start="359" selection-end="359" vertical-scroll-proportion="0.375">
+            <state line="62" column="36" selection-start="2546" selection-end="2546" vertical-scroll-proportion="-4.142857">
               <folding />
             </state>
           </provider>
@@ -140,7 +149,7 @@
       <file leaf-file-name="application.properties" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="38" selection-start="96" selection-end="96" vertical-scroll-proportion="0.0">
+            <state line="4" column="33" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -155,19 +164,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/model/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="6" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="mvc-dispatcher-servlet.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.0">
+            <state line="18" column="45" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -191,14 +191,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/model/Tweet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/Interceptors/TweetInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/Interceptors/UserInterceptor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/TweetController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/data/TweetRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/AppConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/data/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/TweetController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/springapp/mvc/data/TweetRepository.java" />
       </list>
     </option>
   </component>
@@ -285,6 +285,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -417,6 +419,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwiMini" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwiMini" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Interceptors" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -483,8 +515,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -517,19 +547,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -558,6 +575,19 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -571,6 +601,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -592,13 +629,6 @@
       </option>
       <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
@@ -748,11 +778,11 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -764,10 +794,10 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328911" sideWeight="0.7065101" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28651237" sideWeight="0.53796446" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46203554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28651237" sideWeight="0.53958" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46042004" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -849,11 +879,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.28892455" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/model/Tweet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="29" selection-start="162" selection-end="162" vertical-scroll-proportion="0.21694215" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/springapp/mvc/AppTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="13" selection-start="997" selection-end="997" vertical-scroll-proportion="0.0">
@@ -880,15 +905,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/data/TweetRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="5" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
         <state />
       </provider>
       <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
@@ -896,16 +917,6 @@
       </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="38" selection-start="96" selection-end="96" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -917,37 +928,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/Interceptors/TweetInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="38" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="58" selection-start="1824" selection-end="1824" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/TweetController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="33" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.0">
+        <state line="18" column="45" selection-start="1014" selection-end="1014" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="33" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/Interceptors/TweetInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="936" selection-end="1020" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/data/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="27" selection-start="359" selection-end="359" vertical-scroll-proportion="0.375">
+        <state line="62" column="36" selection-start="2546" selection-end="2546" vertical-scroll-proportion="-4.142857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="29" selection-start="2728" selection-end="2728" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/controller/TweetController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="39" selection-start="864" selection-end="864" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/model/Tweet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/springapp/mvc/data/TweetRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="145" selection-start="1370" selection-end="1370" vertical-scroll-proportion="0.8340249">
           <folding />
         </state>
       </provider>
