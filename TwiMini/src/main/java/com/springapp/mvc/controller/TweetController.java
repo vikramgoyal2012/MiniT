@@ -1,5 +1,6 @@
 package com.springapp.mvc.controller;
 
+import com.springapp.mvc.data.CassandraRepository;
 import com.springapp.mvc.data.TweetRepository;
 import com.springapp.mvc.model.Tweet;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,12 @@ import java.util.Map;
 @Controller
 public class TweetController {
     private final TweetRepository repository;
+    private final CassandraRepository cassandraRepository;
 
     @Autowired
-    public TweetController(TweetRepository repository) {
+    public TweetController(TweetRepository repository,CassandraRepository cassandraRepository) {
         this.repository = repository;
+        this.cassandraRepository=cassandraRepository;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/")
@@ -33,9 +36,10 @@ public class TweetController {
     {
         Tweet tweet=new Tweet();
         tweet.setContent(keyMappedData.get("content"));
-        int userid=repository.getUserIDByEmail(request.getAttribute("currentEmail").toString());
-        tweet.setUserid(userid);
-        repository.addTweet(tweet.getUserid(),tweet.getContent());
+        //int userid=repository.getUserIDByEmail(request.getAttribute("currentEmail").toString());
+        //tweet.setUserid(userid);
+        //repository.addTweet(tweet.getUserid(),tweet.getContent());
+        cassandraRepository.addTweet(request.getAttribute("currentEmail").toString(),tweet.getContent());
     }
 
     @RequestMapping(value="{userid}" ,method = RequestMethod.GET)
