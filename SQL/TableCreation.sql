@@ -1,39 +1,38 @@
 CREATE TABLE users(
-    userid serial PRIMARY KEY,
-    name VARCHAR (150) NOT NULL,
-    password VARCHAR (50) NOT NULL,
-    email VARCHAR (200) UNIQUE NOT NULL
-	
+    email VARCHAR (200) Primary Key,
+    name VARCHAR (50) NOT NULL,
+    password VARCHAR (50) NOT NULL
 );
 
 CREATE INDEX email_index1 ON users(email);
 
 CREATE TABLE posts(
-	tweetid bigserial Primary Key,	
-	userid integer NOT NULL references users(userid),
-	content VARCHAR(150) NOT NULL
-	
+	tweetid VARCHAR(33) Primary Key,	
+	email VARCHAR(200) NOT NULL,
+	content VARCHAR(141) NOT NULL,	
+	tstamp VARCHAR(30) NOT NULL
 );
 
-CREATE INDEX userid_index1 ON posts(userid);
-CREATE INDEX tweetid_index1 ON posts(tweetid);
+CREATE INDEX email_index2 ON posts(email);
+CREATE INDEX tweetid_index1 ON posts(content);
 
 CREATE TABLE following(
-	userid integer NOT NULL references users(userid),
-	following_userid integer NOT NULL references users(userid),
-	PRIMARY KEY(userid,following_userid)
+	uemail VARCHAR(200) NOT NULL,
+	femail VARCHAR(200) NOT NULL, 
+	PRIMARY KEY(uemail,femail)
 );
 
-CREATE INDEX userid_index2 ON Following(userid);
-CREATE INDEX following_userid_index ON Following(following_userid);
+CREATE INDEX uemail_index2 ON following(uemail);
+CREATE INDEX femail_index ON following(femail);
 
 CREATE TABLE tweetsforuser(
-	userid integer NOT NULL references users(userid),
-	tweetid bigint NOT NULL references posts(tweetid),
-	PRIMARY KEY(userid,tweetid)
+	email VARCHAR(200) NOT NULL,
+	tweetid VARCHAR(33) NOT NULL,
+	tstamp VARCHAR(30) NOT NULL,
+	PRIMARY KEY(email,tweetid)
 );
 
-CREATE INDEX userid_index3 ON tweetsforuser(userid);
+CREATE INDEX email_index3 ON tweetsforuser(email);
 
 
 

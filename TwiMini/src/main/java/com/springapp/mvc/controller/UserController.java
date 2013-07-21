@@ -1,5 +1,6 @@
 package com.springapp.mvc.controller;
 
+import com.springapp.mvc.data.CassandraRepository;
 import com.springapp.mvc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,12 +19,16 @@ import java.util.Map;
 @Controller
 public class UserController {
 
-    private final UserRepository repository;
-
     @Autowired
-    public UserController(UserRepository repository) {
+    private UserRepository repository;
+    @Autowired
+    private CassandraRepository cassandraRepository;
+
+    /*@Autowired
+    public UserController(UserRepository repository,CassandraRepository cassandraRepository) {
         this.repository = repository;
-    }
+        this.cassandraRepository=cassandraRepository;
+    } */
 
     @RequestMapping("/")
     @ResponseBody
@@ -35,11 +40,17 @@ public class UserController {
     @ResponseBody
     public void userUpdate(@RequestBody Map<String, String> user, HttpServletResponse response)
     {
-        if(repository.isUserPresent(user.get("email")))
+        /*if(repository.isUserPresent(user.get("email")))
         {
             System.out.println("Modifying new User "+user.get("password"));
+<<<<<<< HEAD
             repository.modifyUser(user.get("email"),user.get("name"),user.get("password"));
         }
+=======
+            repository.modifyUser(user.get("email"),user.get("password"));
+        }*/
+        cassandraRepository.registerUser(user.get("email"),user.get("name"),user.get("password"),true);
+>>>>>>> 47e73d66e1bb83d0dae2d1b92092a6648e8e1573
     }
 
     @RequestMapping(value = "/{email}/followers/{lastFollowerEmail}",method = RequestMethod.GET)
@@ -64,21 +75,37 @@ public class UserController {
     public void add(@RequestBody Map<String, String> user, HttpServletResponse response) {
         System.out.println("Creating new user: " + user.get("email") + " " + user.get("password"));
             System.out.println("Not found in the database");
-            repository.addUser(user.get("name"),user.get("password"),user.get("email"));
+            //repository.addUser(user.get("name"),user.get("password"),user.get("email"));
+            cassandraRepository.registerUser(user.get("email"),user.get("name"),user.get("password"),false);
     }
 
     @RequestMapping(value = "/subscriptions/{id}" ,method = RequestMethod.DELETE)
     @ResponseBody
     public void unfollow(@RequestBody Map<String,String> info,HttpServletResponse response,HttpServletRequest request)
     {
+<<<<<<< HEAD
         System.out.println();
         repository.unfollow(request.getAttribute("currentEmail").toString(),info.get("userEmail"));
+=======
+        //int userid=repository.getUserIDByEmail(request.getAttribute("currentEmail").toString());
+        //int otheruserID=repository.getUserIDByEmail(info.get("userEmail"));
+        //repository.unfollow(userid,otheruserID);
+        cassandraRepository.unfollowUser(request.getAttribute("currentEmail").toString(),info.get("userEmail"));
+
+>>>>>>> 47e73d66e1bb83d0dae2d1b92092a6648e8e1573
     }
 
     @RequestMapping(value = "/users/{id}" ,method = RequestMethod.PUT)
     @ResponseBody
     public void follow(@RequestBody Map<String,String> info,HttpServletResponse response,HttpServletRequest request)
     {
+<<<<<<< HEAD
         repository.follow(request.getAttribute("currentEmail").toString(),info.get("userEmail"));
+=======
+        //int userid=repository.getUserIDByEmail(request.getAttribute("currentEmail").toString());
+        //int otheruserID=repository.getUserIDByEmail(info.get("userEmail"));
+        //repository.follow(userid,otheruserID);
+        cassandraRepository.followUser(request.getAttribute("currentEmail").toString(),info.get("userEmail"));
+>>>>>>> 47e73d66e1bb83d0dae2d1b92092a6648e8e1573
     }
 }

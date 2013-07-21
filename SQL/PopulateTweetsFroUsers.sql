@@ -1,1 +1,3 @@
-COPY (SELECT f.userid as user,p.tweetid as relevant_tweet FROM posts p INNER JOIN following f ON (p.userid = f.following_userid)) TO '/tmp/tweetsforuser.csv' WITH CSV;
+COPY (SELECT f.uemail as user,p.tweetid as relevant_tweet, p.tstamp as tstamp
+	FROM posts p INNER JOIN following f ON (p.email = f.femail)) 
+	TO '/tmp/tweetsforuser.csv' WITH CSV;

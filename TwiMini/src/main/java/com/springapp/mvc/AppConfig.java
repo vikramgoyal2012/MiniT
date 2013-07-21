@@ -1,6 +1,5 @@
 package com.springapp.mvc;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 import java.beans.PropertyVetoException;
 
 import me.prettyprint.cassandra.service.CassandraHostConfigurator;
@@ -11,8 +10,6 @@ import me.prettyprint.hector.api.HConsistencyLevel;
 import me.prettyprint.hector.api.Keyspace;
 import me.prettyprint.hector.api.factory.HFactory;
 import org.postgresql.ds.PGPoolingDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,16 +17,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import com.springapp.mvc.data.UserRepository;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 @Configuration
 @ComponentScan(basePackages = "com.springapp.mvc")
@@ -49,8 +37,9 @@ public class AppConfig{
         source.setUser("vivek");
         source.setPassword("123");
         source.setMaxConnections(30);
+        JdbcTemplate ret=new JdbcTemplate(source);
         System.out.println("hello");
-        return new JdbcTemplate(source);
+        return ret;
     }
 
     @Bean
@@ -83,4 +72,8 @@ public class AppConfig{
         });
         return keyspace;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 47e73d66e1bb83d0dae2d1b92092a6648e8e1573
 }
