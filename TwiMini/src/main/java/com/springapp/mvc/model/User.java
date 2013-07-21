@@ -5,20 +5,11 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 
 public class User {
 
-    public int userID;
-    //@JsonIgnore
+    @JsonIgnore
     public String password;
     public String name;
-    public String emailID;
+    public String email;
 
-
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
 
     public String getPassword() {
         return password;
@@ -36,11 +27,11 @@ public class User {
         this.name = name;
     }
 
-    public String getEmailID() {
-        return emailID;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailID(String emailID) {
-        this.emailID = emailID;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

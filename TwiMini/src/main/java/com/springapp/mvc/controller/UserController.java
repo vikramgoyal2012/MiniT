@@ -9,6 +9,8 @@ import com.springapp.mvc.data.UserRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.DatatypeConverter;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
 
@@ -36,22 +38,25 @@ public class UserController {
         if(repository.isUserPresent(user.get("email")))
         {
             System.out.println("Modifying new User "+user.get("password"));
-            repository.modifyUser(user.get("email"),user.get("password"));
+            repository.modifyUser(user.get("email"),user.get("name"),user.get("password"));
         }
     }
 
-    @RequestMapping(value = "/{id}/followers/{lastfollowerid}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{email}/followers/{lastFollowerEmail}",method = RequestMethod.GET)
     @ResponseBody
-    public List<User> followersList(@PathVariable("id") int userid,@PathVariable("lastfollowerid") int lastfollowerid)
-    {
-        return repository.getFollowers(userid,lastfollowerid);
+    public List<User> followersList(@PathVariable("email") String email,@PathVariable("lastFollowerEmail") String lastFollowerEmail) throws UnsupportedEncodingException {
+        System.out.println("Mapped");
+        byte[] authbytes= DatatypeConverter.parseBase64Binary(email) ;
+        String finalEmail=new String(authbytes,"UTF-8");
+        return repository.getFollowers(finalEmail,lastFollowerEmail);
     }
 
-    @RequestMapping(value = "/{id}/subscriptions/{lastsubscriberid}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{email}/subscriptions/{lastSubscriptionEmail}",method = RequestMethod.GET)
     @ResponseBody
-    public List<User> subscriptionsList(@PathVariable("id") int userid,@PathVariable("lastsubscriberid") int lastsubscriberid)
-    {
-        return repository.getSubscriptions(userid,lastsubscriberid);
+    public List<User> subscriptionsList(@PathVariable("email") String email,@PathVariable("lastSubscriptionEmail") String lastSubscriptionEmail) throws UnsupportedEncodingException {
+        byte[] authbytes= DatatypeConverter.parseBase64Binary(email) ;
+        String finalEmail=new String(authbytes,"UTF-8");
+        return repository.getSubscriptions(finalEmail,lastSubscriptionEmail);
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
@@ -62,23 +67,18 @@ public class UserController {
             repository.addUser(user.get("name"),user.get("password"),user.get("email"));
     }
 
-    @RequestMapping(value = "/{id}/subscriptions" ,method = RequestMethod.DELETE)
+    @RequestMapping(value = "/subscriptions/{id}" ,method = RequestMethod.DELETE)
     @ResponseBody
     public void unfollow(@RequestBody Map<String,String> info,HttpServletResponse response,HttpServletRequest request)
     {
-        int userid=repository.getUserIDByEmail(request.getAttribute("currentEmail").toString());
-        int otheruserID=repository.getUserIDByEmail(info.get("userEmail"));
-        repository.unfollow(userid,otheruserID);
-
+        System.out.println();
+        repository.unfollow(request.getAttribute("currentEmail").toString(),info.get("userEmail"));
     }
 
     @RequestMapping(value = "/users/{id}" ,method = RequestMethod.PUT)
     @ResponseBody
     public void follow(@RequestBody Map<String,String> info,HttpServletResponse response,HttpServletRequest request)
     {
-        int userid=repository.getUserIDByEmail(request.getAttribute("currentEmail").toString());
-        int otheruserID=repository.getUserIDByEmail(info.get("userEmail"));
-        repository.follow(userid,otheruserID);
-
+        repository.follow(request.getAttribute("currentEmail").toString(),info.get("userEmail"));
     }
 }

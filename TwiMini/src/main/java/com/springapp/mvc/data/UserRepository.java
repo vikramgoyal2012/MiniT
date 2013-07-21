@@ -19,14 +19,18 @@ public class UserRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<User> getFollowers(int userid,int lastfollowerid)
+    public List<User> getFollowers(String email,String lastfolloweremail)
     {
-        return jdbcTemplate.query("SELECT userid,name from users where userid in (select userid from following where following_userid=?  AND userid > ?) ORDER BY userid LIMIT 10",new Object[]{userid,lastfollowerid},new BeanPropertyRowMapper<User>(User.class));
+        if(lastfolloweremail!="000")
+            return jdbcTemplate.query("SELECT email,name from users where email in (select uemail from following where femail=?  AND email > ?) ORDER BY email LIMIT 20",new Object[]{email,lastfolloweremail},new BeanPropertyRowMapper<User>(User.class));
+        return jdbcTemplate.query("SELECT email,name from users where email in (select uemail from following where femail=? ) ORDER BY email LIMIT 20",new Object[]{email},new BeanPropertyRowMapper<User>(User.class));
     }
 
-    public List<User> getSubscriptions(int userid,int lastsubscriberid)
+    public List<User> getSubscriptions(String email,String lastSubscriptionEmail)
     {
-        return jdbcTemplate.query("SELECT userid,name from users where userid in (select following_userid from following where userid=? AND following_userid> ?) ORDER BY userid LIMIT 10",new Object[]{userid,lastsubscriberid},new BeanPropertyRowMapper<User>(User.class));
+        if(lastSubscriptionEmail.equals("000"))
+            return jdbcTemplate.query("SELECT email,name from users where email in (select femail from following where uemail=?) ORDER BY email LIMIT 10",new Object[]{email},new BeanPropertyRowMapper<User>(User.class));
+        return jdbcTemplate.query("SELECT email,name from users where email in (select femail from following where uemail=? AND femail> ?) ORDER BY email LIMIT 10",new Object[]{email,lastSubscriptionEmail},new BeanPropertyRowMapper<User>(User.class));
     }
 
     public void addUser(String name, String password, String emailID) {
@@ -34,13 +38,13 @@ public class UserRepository {
         jdbcTemplate.execute("INSERT INTO users(name,password,email) values ('" + name + "', '" + password + "', '" + emailID + "')");
     }
 
-    public void modifyUser(String emailId, String password) {
-        jdbcTemplate.update("UPDATE users set password=? where email=?", new Object[]{password, emailId});
+    public void modifyUser(String emailId,String name,String password) {
+        jdbcTemplate.update("UPDATE users set password=?,name=? where email=?", new Object[]{password,name, emailId});
     }
 
     public List<User> findUserbyEmail(String email)
     {
-        return jdbcTemplate.query("SELECT userID,name,password from users where email=?", new Object[]{email}, new BeanPropertyRowMapper<User>(User.class));
+        return jdbcTemplate.query("SELECT email,name,password from users where email=?", new Object[]{email}, new BeanPropertyRowMapper<User>(User.class));
     }
 
     public boolean isUserPresent(String email) {
@@ -57,19 +61,19 @@ public class UserRepository {
         return false;
     }
 
-    public int getUserIDByEmail(String email)
+    /*public int getUserIDByEmail(String email)
     {
         return jdbcTemplate.queryForObject("Select userid from users where email=?",new Object[]{email},new BeanPropertyRowMapper<User>(User.class)).getUserID();
+    }*/
+
+    public void unfollow(String one,String two)
+    {
+        jdbcTemplate.execute("delete from following where uemail='"+one+"' and femail='"+two+"'");
     }
 
-    public void unfollow(int one,int two)
+    public void follow(String one,String two)
     {
-        jdbcTemplate.execute("delete from following where userid="+one+" and following_userid="+two);
-    }
-
-    public void follow(int one,int two)
-    {
-        jdbcTemplate.execute("insert into following values("+one+","+two+")");
+        jdbcTemplate.execute("insert into following values('"+one+"','"+two+"')");
     }
 
 }
