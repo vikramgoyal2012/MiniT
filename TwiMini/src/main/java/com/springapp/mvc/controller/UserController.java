@@ -46,18 +46,18 @@ public class UserController {
         cassandraRepository.registerUser(user.get("email"),user.get("name"),user.get("password"),true);
     }
 
-    @RequestMapping(value = "/{id}/followers",method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/followers/{lastfollowerid}",method = RequestMethod.GET)
     @ResponseBody
-    public List<User> followersList(@PathVariable("id") int userid)
+    public List<User> followersList(@PathVariable("id") int userid,@PathVariable("lastfollowerid") int lastfollowerid)
     {
-        return repository.getFollowers(userid);
+        return repository.getFollowers(userid,lastfollowerid);
     }
 
-    @RequestMapping(value = "/{id}/subscriptions",method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/subscriptions/{lastsubscriberid}",method = RequestMethod.GET)
     @ResponseBody
-    public List<User> subscriptionsList(@PathVariable("id") int userid)
+    public List<User> subscriptionsList(@PathVariable("id") int userid,@PathVariable("lastsubscriberid") int lastsubscriberid)
     {
-        return repository.getSubscriptions(userid);
+        return repository.getSubscriptions(userid,lastsubscriberid);
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)

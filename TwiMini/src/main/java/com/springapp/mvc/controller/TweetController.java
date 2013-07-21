@@ -23,11 +23,12 @@ public class TweetController {
         this.cassandraRepository=cassandraRepository;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/")
+    @RequestMapping(method = RequestMethod.GET, value = "/{lasttweetid}")
     @ResponseBody
-    public List<Tweet> getFeed(HttpServletRequest request,HttpServletResponse response)
+    public List<Tweet> getFeed(@PathVariable("lasttweetid") int lasttweetid,HttpServletRequest request,HttpServletResponse response)
     {
-        return repository.getRelevanttweets(request.getAttribute("currentEmail").toString());
+        System.out.println("Started the process of getting tweets for the user");
+        return repository.getRelevanttweets(request.getAttribute("currentEmail").toString(),lasttweetid);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/tweets")
@@ -42,11 +43,11 @@ public class TweetController {
         cassandraRepository.addTweet(request.getAttribute("currentEmail").toString(),tweet.getContent());
     }
 
-    @RequestMapping(value="{userid}" ,method = RequestMethod.GET)
+    @RequestMapping(value="{userid}/{lasttweetid}" ,method = RequestMethod.GET)
     @ResponseBody
-    public List<Tweet> fetchUserTweets(@PathVariable("userid") int userid)
+    public List<Tweet> fetchUserTweets(@PathVariable("userid") int userid,@PathVariable("lasttweetid") int lasttweetid)
     {
-         return repository.getTweetByUserid(userid);
+         return repository.getTweetByUserid(userid,lasttweetid);
     }
 
     @RequestMapping(value = "/tweets/{tweetid}")

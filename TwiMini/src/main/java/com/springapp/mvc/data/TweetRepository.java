@@ -26,9 +26,16 @@ public class TweetRepository {
         return 0;
     }
 
-    public List<Tweet> getTweetByUserid(int userid)
+    public List<Tweet> getTweetByUserid(int userid,int lasttweetid)
     {
-        return jdbcTemplate.query("SELECT tweetid,userid,content from posts where userid=?",new Object[]{userid},new BeanPropertyRowMapper<Tweet>(Tweet.class));
+        if(lasttweetid!=0) {
+        return jdbcTemplate.query("SELECT tweetid,userid,content from posts where userid=? AND tweetid < ? ORDER BY tweetid DESC LIMIT 5",new Object[]{userid,lasttweetid},new BeanPropertyRowMapper<Tweet>(Tweet.class));
+        }
+        else {
+            return jdbcTemplate.query("SELECT tweetid,userid,content from posts where userid=? ORDER BY tweetid DESC LIMIT 5",new Object[]{userid},new BeanPropertyRowMapper<Tweet>(Tweet.class));
+
+        }
+
     }
 
     public int getUserIDByEmail(String email)
@@ -41,9 +48,18 @@ public class TweetRepository {
         return jdbcTemplate.query("Select content from posts where tweetid=?",new Object[]{tweetID},new BeanPropertyRowMapper<Tweet>(Tweet.class));
     }
 
-    public List<Tweet> getRelevanttweets(String email)
+    public List<Tweet> getRelevanttweets(String email,int lasttweetid)
     {
+        System.out.println("Fetching the userid of the user for email id" + email);
         int userid=getUserIDByEmail(email);
-        return jdbcTemplate.query("Select userid,content from posts where tweetid in(select tweetid from tweetsforuser where userid=?)",new Object[]{userid},new BeanPropertyRowMapper<Tweet>(Tweet.class));
-    }
+        System.out.println("User for whom tweets are being fetched" + userid);
+        if(lasttweetid!=0) {
+            return jdbcTemplate.query("Select tweetid,userid,content from posts where tweetid in(select tweetid from tweetsforuser where userid=? AND tweetid < ? ORDER BY tweetid DESC limit 5)",new Object[]{userid,lasttweetid},new BeanPropertyRowMapper<Tweet>(Tweet.class));
+        }
+        else {
+            return jdbcTemplate.query("Select tweetid,userid,content from posts where tweetid in(select tweetid from tweetsforuser where userid=? ORDER BY tweetid DESC limit 5)",new Object[]{userid},new BeanPropertyRowMapper<Tweet>(Tweet.class));
+
+        }
+
+        }
 }

@@ -19,14 +19,14 @@ public class UserRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<User> getFollowers(int userid)
+    public List<User> getFollowers(int userid,int lastfollowerid)
     {
-        return jdbcTemplate.query("SELECT userid,name from users where userid in (select userid from following where following_userid=?)",new Object[]{userid},new BeanPropertyRowMapper<User>(User.class));
+        return jdbcTemplate.query("SELECT userid,name from users where userid in (select userid from following where following_userid=?  AND userid > ?) ORDER BY userid LIMIT 10",new Object[]{userid,lastfollowerid},new BeanPropertyRowMapper<User>(User.class));
     }
 
-    public List<User> getSubscriptions(int userid)
+    public List<User> getSubscriptions(int userid,int lastsubscriberid)
     {
-        return jdbcTemplate.query("SELECT userid,name from users where userid in (select following_userid from following where userid=?)",new Object[]{userid},new BeanPropertyRowMapper<User>(User.class));
+        return jdbcTemplate.query("SELECT userid,name from users where userid in (select following_userid from following where userid=? AND following_userid> ?) ORDER BY userid LIMIT 10",new Object[]{userid,lastsubscriberid},new BeanPropertyRowMapper<User>(User.class));
     }
 
     public void addUser(String name, String password, String emailID) {
