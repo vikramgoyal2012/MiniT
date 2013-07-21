@@ -1,24 +1,33 @@
 package com.springapp.mvc.model;
 
 public class Tweet {
-    private int tweetid;
-    private int userid;
+    private String tweetid;
+    private String email;
+    private String timestamp;
     private String content;
 
-    public int getTweetid() {
+    public String getTweetid() {
         return tweetid;
     }
 
-    public void setTweetid(int tweetid) {
+    public void setTweetid(String tweetid) {
         this.tweetid = tweetid;
     }
 
-    public int getUserid() {
-        return userid;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getContent() {
