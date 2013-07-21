@@ -29,7 +29,7 @@
     <file path="/TestMd5.java" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1374322147623" ignored="false" />
     <file path="$USER_HOME$/TwiMini/pom.xml" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1374325888922" ignored="false" />
     <file path="$USER_HOME$/TwiMini/src/main/java/com/springapp/mvc/data/UserRepository.java" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1374326136559" ignored="false" />
-    <file path="/Dummy.txt" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1374389481791" ignored="false" />
+    <file path="/Dummy.txt" changelist="f6ed2d24-8a72-4b79-b314-92845cc7437e" time="1374389694928" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -817,7 +817,11 @@
       <created>1374389524135</created>
       <updated>1374389524135</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="The REST API">
+      <created>1374389701308</created>
+      <updated>1374389701308</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
