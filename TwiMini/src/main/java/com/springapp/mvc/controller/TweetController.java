@@ -1,6 +1,5 @@
 package com.springapp.mvc.controller;
 
-import com.springapp.mvc.data.CassandraRepository;
 import com.springapp.mvc.data.TweetRepository;
 import com.springapp.mvc.model.Tweet;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +17,10 @@ import java.util.Map;
 @Controller
 public class TweetController {
     private final TweetRepository repository;
-    private final CassandraRepository cassandraRepository;
 
     @Autowired
-    public TweetController(TweetRepository repository,CassandraRepository cassandraRepository) {
+    public TweetController(TweetRepository repository) {
         this.repository = repository;
-        this.cassandraRepository=cassandraRepository;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{lastTimeStamp}")
@@ -38,16 +35,7 @@ public class TweetController {
     @ResponseBody
     public void addTweet(@RequestBody Map<String,String> keyMappedData,HttpServletRequest request,HttpServletResponse response)
     {
-<<<<<<< HEAD
         repository.addTweet(request.getAttribute("currentEmail").toString(),keyMappedData.get("content"),getCurrentTimeStamp());
-=======
-        Tweet tweet=new Tweet();
-        tweet.setContent(keyMappedData.get("content"));
-        //int userid=repository.getUserIDByEmail(request.getAttribute("currentEmail").toString());
-        //tweet.setUserid(userid);
-        //repository.addTweet(tweet.getUserid(),tweet.getContent());
-        cassandraRepository.addTweet(request.getAttribute("currentEmail").toString(),tweet.getContent());
->>>>>>> 47e73d66e1bb83d0dae2d1b92092a6648e8e1573
     }
 
     private String getCurrentTimeStamp()
