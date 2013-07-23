@@ -9,10 +9,11 @@ CREATE INDEX email_index1 ON users(email);
 CREATE TABLE posts(
 	tweetid VARCHAR(33) Primary Key,	
 	email VARCHAR(200) NOT NULL,
-	content VARCHAR(141) NOT NULL	
+	content VARCHAR(141) NOT NULL,	
+	tstamp VARCHAR(30) NOT NULL
 );
 
-CREATE INDEX email_index1 ON posts(email);
+CREATE INDEX email_index2 ON posts(email);
 CREATE INDEX tweetid_index1 ON posts(content);
 
 CREATE TABLE following(
@@ -21,12 +22,13 @@ CREATE TABLE following(
 	PRIMARY KEY(uemail,femail)
 );
 
-CREATE INDEX uemail_index2 ON Following(uemail);
-CREATE INDEX femail_index ON Following(femail);
+CREATE INDEX uemail_index2 ON following(uemail);
+CREATE INDEX femail_index ON following(femail);
 
 CREATE TABLE tweetsforuser(
 	email VARCHAR(200) NOT NULL,
-	tweetid VARCHAR(33) NOT NULL 
+	tweetid VARCHAR(33) NOT NULL,
+	tstamp VARCHAR(30) NOT NULL,
 	PRIMARY KEY(email,tweetid)
 );
 

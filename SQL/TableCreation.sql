@@ -34,6 +34,13 @@ CREATE TABLE tweetsforuser(
 
 CREATE INDEX email_index3 ON tweetsforuser(email);
 
+CREATE TABLE tokens(
+	token VARCHAR(200) NOT NULL,
+	email VARCHAR(200) NOT NULL,
+	PRIMARY KEY(token)
+);
+
+CREATE INDEX token_index on tokens(token);
 
 
 			
