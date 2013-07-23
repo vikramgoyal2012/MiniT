@@ -1,11 +1,10 @@
 package com.springapp.mvc.controller;
 
+import com.springapp.mvc.data.UserRepository;
 import com.springapp.mvc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import com.springapp.mvc.data.UserRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,12 +24,12 @@ public class UserController {
         this.repository = repository;
     }
 
-    @RequestMapping("/")
+/*    @RequestMapping("/")
     @ResponseBody
     public List<User> printWelcome(ModelMap model) {
         return null;
     }
-
+ */
     @RequestMapping(value = "/users", method = RequestMethod.PUT)
     @ResponseBody
     public void userUpdate(@RequestBody Map<String, String> user, HttpServletResponse response)
