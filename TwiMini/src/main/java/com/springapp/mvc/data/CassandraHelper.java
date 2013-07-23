@@ -59,7 +59,7 @@ public class CassandraHelper {
     {
         SliceQuery sliceQuery= HFactory.createSliceQuery(keyspace, StringSerializer.get(), StringSerializer.get(), StringSerializer.get());
         sliceQuery.setColumnFamily("users");
-        sliceQuery.setKey(email).setRange("","",false,1);
+        sliceQuery.setKey(email).setRange("","zzzzzzzzzz",false,1);
         QueryResult<ColumnSlice<String,String>> result = sliceQuery.execute();
         if(result.get().getColumns().isEmpty())
             return false;

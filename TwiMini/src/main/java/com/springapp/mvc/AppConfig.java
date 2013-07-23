@@ -1,8 +1,11 @@
 package com.springapp.mvc;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 import java.beans.PropertyVetoException;
+import java.io.IOException;
 
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
 import me.prettyprint.cassandra.service.CassandraHostConfigurator;
 import me.prettyprint.cassandra.service.OperationType;
 import me.prettyprint.hector.api.Cluster;
@@ -11,8 +14,6 @@ import me.prettyprint.hector.api.HConsistencyLevel;
 import me.prettyprint.hector.api.Keyspace;
 import me.prettyprint.hector.api.factory.HFactory;
 import org.postgresql.ds.PGPoolingDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,24 +21,22 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import com.springapp.mvc.data.UserRepository;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+/**
+ * Created with IntelliJ IDEA.
+ * User: vivek
+ * Date: 7/22/13
+ * Time: 5:59 PM
+ * To change this template use File | Settings | File Templates.
+ */
 @Configuration
 @ComponentScan(basePackages = "com.springapp.mvc")
 @PropertySource(value = "classpath:/application.properties")
 @EnableWebMvc
 @EnableTransactionManagement
 public class AppConfig{
-
+    private static Connection connection =null;
     @Bean
     public JdbcTemplate jdbcTemplate() throws PropertyVetoException {
         PGPoolingDataSource source = new PGPoolingDataSource();
@@ -82,5 +81,30 @@ public class AppConfig{
             }
         });
         return keyspace;
+    }
+
+    @Bean
+    public Channel getChannel()  {
+
+        ConnectionFactory connectionFactory=new ConnectionFactory();
+       connectionFactory.setHost("localhost");
+
+        Channel channel=null;
+
+        try {
+            getConnection(connectionFactory);
+            channel=connection.createChannel();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return channel;
+    }
+
+    private void getConnection(ConnectionFactory connectionFactory) throws IOException {
+        if(connection==null)
+             connection=connectionFactory.newConnection();
+
     }
 }

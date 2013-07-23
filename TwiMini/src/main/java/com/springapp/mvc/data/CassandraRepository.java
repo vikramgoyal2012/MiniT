@@ -184,11 +184,11 @@ public class CassandraRepository {
     public List<Tweet> getFeed(String email,String lastTimestamp)
     {
         List<Tweet> ret=new LinkedList<Tweet>();
-        SliceQuery sliceQuery=HFactory.createSliceQuery(keyspace,StringSerializer.get(),CompositeSerializer.get(),CompositeSerializer.get());
-        Composite start=helper.getCompositeSS(lastTimestamp,"");
+        SliceQuery sliceQuery=HFactory.createSliceQuery(keyspace, StringSerializer.get(), CompositeSerializer.get(), CompositeSerializer.get());
+        Composite start=helper.getCompositeSS(lastTimestamp, "");
         Composite end=helper.getCompositeSS("zzzzzzzzz", "zzzzzzzzzz");
 
-        sliceQuery.setColumnFamily("tweetsforuser").setKey(email).setRange(start,end,true,10);
+        sliceQuery.setColumnFamily("tweetsforuser").setKey(email).setRange(start, end, true, 10);
         QueryResult<ColumnSlice<Composite,Composite>> result=sliceQuery.execute();
         List<HColumn<Composite,Composite>> list=result.get().getColumns();
 
@@ -203,5 +203,34 @@ public class CassandraRepository {
         }
 
         return ret;
+    }
+
+    public boolean isEmailPresent(String email)
+    {
+        return helper.isEmailTaken(email);
+    }
+    public String getEmailFromToken(String token)
+    {
+        SliceQuery sliceQuery=HFactory.createSliceQuery(keyspace,StringSerializer.get(),StringSerializer.get(),StringSerializer.get());
+        sliceQuery.setColumnFamily("tokens").setRange("email","email",false,1).setKey(token);
+        QueryResult<ColumnSlice<String,String>> result=sliceQuery.execute();
+
+        try
+        {
+            return result.get().getColumns().get(0).getValue();
+        }
+        catch (Exception e)
+        {
+            System.out.println("No email of token");
+            return "";
+        }
+    }
+
+    public void addToken(String email,String token)
+    {
+        Mutator<String> mutator=HFactory.createMutator(keyspace,StringSerializer.get());
+        HColumn<String,String> column=HFactory.createColumn("email",email);
+        mutator.addInsertion(token,"tokens",column);
+        mutator.execute();
     }
 }

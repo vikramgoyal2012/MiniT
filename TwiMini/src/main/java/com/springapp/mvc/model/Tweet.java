@@ -1,5 +1,12 @@
 package com.springapp.mvc.model;
 
+/**
+ * Created with IntelliJ IDEA.
+ * User: vivek
+ * Date: 7/22/13
+ * Time: 5:59 PM
+ * To change this template use File | Settings | File Templates.
+ */
 public class Tweet {
     private String tweetid;
     private String email;

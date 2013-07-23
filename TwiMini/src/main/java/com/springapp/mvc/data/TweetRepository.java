@@ -14,6 +14,13 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+/**
+ * Created with IntelliJ IDEA.
+ * User: vivek
+ * Date: 7/22/13
+ * Time: 5:59 PM
+ * To change this template use File | Settings | File Templates.
+ */
 @Repository
 public class TweetRepository {
     private final JdbcTemplate jdbcTemplate;
